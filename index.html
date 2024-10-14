@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body onload="slide()">
+    <dev class="slider">
+      <div id="slide-images" class="slide-images">
+        <div class="card">
+          <img src="images/img1.png" alt="" class="card-img" />
+        </div>
+        <div class="card">
+          <img src="images/image2.png" alt="" class="card-img" />
+        </div>
+        <div class="card">
+          <img src="images/image3.png" alt="" class="card-img" />
+        </div>
+      </div>
+      <div class="icons">
+        <i class="fa-solid fa-angle-left" onclick="slide('prev')"></i>
+        <i class="fa-solid fa-angle-right" onclick="slide('next')"></i>
+      </div>
+    </dev>
+    <script>
+      let array = [
+        "https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg",
+        "images/image1.png",
+        "images/image2.png",
+        "images/image3.png",
+        "images/image4.png",
+        "images/image5.png",
+        "images/image6.png",
+        "images/image7.png",
+        "images/image8.png",
+        "images/image9.png",
+      ];
+      let startingPoint = 0;
+      let endpoint = 3;
+      function slide(action) {
+        if (action === "next" && endpoint<array.length) {
+          startingPoint += 1;
+          endpoint += 1;
+          for (let i = startingPoint; i < endpoint; i++) {
+            let img = document.getElementsByClassName("card-img");
+            console.log(img[i]=array[i]);
+          }
+        }
+        // function slide(action) {
+        //     if (action==="next") {
+        //         // debugger
+        //         startingPoint+=1;
+        //         endpoint+=1;
+        //         // array.shift()
+        //         // console.log("next",startingPoint,endpoint)
+        //         for (let i = startingPoint; i< endpoint; i++) {
+        //       const container = document.getElementById("slide-images");
+        //       let newElement = document.createElement("div")
+        //         newElement.classList.add("card")
+        //         let img = document.createElement('img')
+        //             img.src = array[i];
+        //             img.classList.add("card-image");
+        //         newElement.appendChild(img)
+        //         container.appendChild(newElement);
+        //         }
+        //     }
+        //     else if (startingPoint>=1) {
+        //         startingPoint-=1;
+        //         endpoint-=1;
+        //         console.log("Prev",startingPoint,endpoint)
+        //         for (let i = startingPoint; i< endpoint; i++) {
+        //       const container = document.getElementById("slide-images");
+        //       let newElement = document.createElement("div")
+        //       newElement.classList.add("card")
+        //       let img = document.createElement('img')
+        //           img.src = array[i];
+        //           img.classList.add("card-image");
+        //       newElement.appendChild(img)
+        //       container.appendChild(newElement);
+        //     }
+        //     }
+        //     else{
+        //         for (let i = startingPoint; i< endpoint; i++) {
+        //       const container = document.getElementById("slide-images");
+        //       let newElement = document.createElement("div")
+        //       newElement.classList.add("card")
+        //       let img = document.createElement('img')
+        //           img.src = array[i];
+        //           img.classList.add("card-image");
+        //       newElement.appendChild(img)
+        //       container.appendChild(newElement);
+        //     }
+        //     }
+      }
+    </script>
+  </body>
+</html>
