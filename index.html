@@ -34,10 +34,8 @@
     <script>
       let array = [
         "https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg",
-        "images/image1.png",
         "images/image2.png",
         "images/image3.png",
-        "images/image4.png",
         "images/image5.png",
         "images/image6.png",
         "images/image7.png",
@@ -46,14 +44,27 @@
       ];
       let startingPoint = 0;
       let endpoint = 3;
+      let itrator=0;
       function slide(action) {
         if (action === "next" && endpoint<array.length) {
           startingPoint += 1;
           endpoint += 1;
+          console.log(`Starting Point:${startingPoint},EndingPoint:${endpoint}`)
           for (let i = startingPoint; i < endpoint; i++) {
             let img = document.getElementsByClassName("card-img");
-            console.log(img[i]=array[i]);
+            img[itrator].src =array[i];
+            itrator+=1;
           }
+          itrator=0;  
+        }else if (action === "prev" && endpoint>4 ) {
+          startingPoint -= 1;
+          endpoint -= 1;
+          for (let i = startingPoint; i < endpoint; i++) {
+            let img = document.getElementsByClassName("card-img");
+            img[itrator].src =array[i];
+            itrator+=1;
+          }
+          itrator=0;
         }
         // function slide(action) {
         //     if (action==="next") {
